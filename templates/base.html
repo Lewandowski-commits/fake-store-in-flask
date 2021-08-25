@@ -20,7 +20,7 @@
             <ul class="navbar-nav mr-auto">
                 {% for category in categoriesList %}
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">{{ category.capitalize() }}<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ url_for('category', selected_cat=category) }}">{{ category.capitalize() }}<span class="sr-only">(current)</span></a>
                     </li>
                 {% endfor %}
             </ul>

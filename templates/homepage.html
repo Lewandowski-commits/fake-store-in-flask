@@ -10,18 +10,20 @@
           <hr class="my-4">
           <p>It's great because it requires me not to do any data prep and focus on the front end before I can figure a data back-end I can plug into.</p>
           <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        <hr class="my-4">
+        <div class="card-deck">
+            {% for product in productsList %}
+                <div class="card" style="width: 18rem;">
+                  <img src={{ product['image'] }} class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ product['title'] }}</h5>
+                    <p class="card-text">{{ product['description'][:99]+"..." }}</p>
+                    <a href="#" class="btn btn-success">View product</a>
+                    <a href="{{ url_for('category', selected_cat=product['category']) }}" class="btn btn-info">See related</a>
+                  </div>
+                </div>
+            {% endfor %}
+        </div>
     </div>
-    <div class="card-deck">
-        {% for product in productsList %}
-            <div class="card" style="width: 18rem;">
-              <img src={{ product['image'] }} class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">{{ product['title'] }}</h5>
-                <p class="card-text">{{ product['description'][:99]+"..." }}</p>
-                <a href="#" class="btn btn-success">View product</a>
-                <a href="#" class="btn btn-info">See related</a>
-              </div>
-            </div>
-        {% endfor %}
-    </div>
+
 {% endblock %}
