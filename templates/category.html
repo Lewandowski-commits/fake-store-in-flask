@@ -15,9 +15,10 @@
                         <div class="col-md-8">
                           <div class="card-body">
                             <h5 class="card-title">{{ product['title'] }}</h5>
-                            <p class="card-text">{{ product['description'][:99]+"..." }}</p>
+                              <p class="card-text">
+                                <h1><span class="badge badge-secondary">{{ product['price'] }}€</span></h1>
+                                {{ product['description']}}</p>
                             <a href="#" class="btn btn-success">View product</a>
-                            <a href="#" class="btn btn-info">See related</a>
                           </div>
                         </div>
                     </div>
