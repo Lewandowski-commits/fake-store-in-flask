@@ -7,15 +7,23 @@ app = Flask(__name__)
 productsUrl = 'https://fakestoreapi.com/products'
 categoriesUrl = 'https://fakestoreapi.com/products/categories'
 
+def get_resp_json(url:str):
+    '''
+    Takes a single url and returns the json content of the reply.
+    :param url:
+    :return:
+    '''
+    resp = requests.get(url=url)
+    result = resp.json()
+    return result
+
 
 @app.route('/')
 def home():
-    resp = requests.get(url=productsUrl)
-    productsListPreSel = resp.json()
+    productsListPreSel = get_resp_json(productsUrl)
     productsList = sample(productsListPreSel, 3)
 
-    resp = requests.get(url=categoriesUrl)
-    categoriesList = resp.json()
+    categoriesList = get_resp_json(categoriesUrl)
 
     return render_template('homepage.html',
                            categoriesList=categoriesList,
@@ -24,8 +32,7 @@ def home():
 
 @app.route('/category/<selected_cat>')
 def category(selected_cat):
-    resp = requests.get(url=productsUrl + '/category/' + selected_cat)
-    productsList = resp.json()
+    productsList = get_resp_json(productsUrl + '/category/' + selected_cat)
     return render_template('category.html',
                            productsList=productsList,
                            selected_cat=selected_cat)
