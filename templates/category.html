@@ -19,7 +19,7 @@
                                 <h1><span class="badge badge-secondary">{{ product['price'] }}€</span></h1>
                                 {{ product['description']}}
                               </p>
-                            <a href="#" class="btn btn-success">View product</a>
+                            <a href="{{ url_for('product', selected_prod_id=product['id']) }}" class="btn btn-success">View product</a>
                           </div>
                         </div>
                     </div>

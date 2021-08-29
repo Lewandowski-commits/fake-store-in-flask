@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+{% block title %}{{ selected_prod['title'].capitalize() }}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="card w-100" style="width: 18rem;">
+            <img src="{{ selected_prod['image'] }}" class="card-img-top h-75 w-75" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">{{ selected_prod['title'] }}</h5>
+                  <p class="card-text">
+                    <h1><span class="badge badge-secondary">{{ selected_prod['price'] }}€</span></h1>
+                    {{ selected_prod['description']}}
+                    <div class="container-fluid">
+                        <div class="row">
+                            <form>
+                                <div class="col">
+                                    <button type="submit" class="btn btn-primary">Add to cart</button>
+                                </div>
+                                <div class="col">
+                                    <input type="number" class="btn-check" min="1">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                  </p>
+              </div>
+        </div>
+        <br>
+    </div>
+
+{% endblock %}
