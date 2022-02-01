@@ -58,5 +58,4 @@ def product(selected_prod_id):
 
 if __name__ == '__main__':
     app.run(debug=True,
-            host='0.0.0.0',
-            port=8090)
+            host='0.0.0.0')
